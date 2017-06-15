@@ -1,0 +1,36 @@
+{
+  "name": "tws-tim",
+  "version": "0.1.0",
+  "description": "Node.js SDK for Teambition Instant Message service",
+  "main": "index.js",
+  "scripts": {
+    "test": "tman 'test/**/*.js'",
+    "pretest": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teambition/tws-tim.git"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "keywords": [
+    "tws",
+    "teambition",
+    "tim"
+  ],
+  "author": "iSayme <isaymeorg@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/teambition/tws-tim/issues"
+  },
+  "homepage": "https://github.com/teambition/tws-tim#readme",
+  "devDependencies": {
+    "power-assert": "^1.4.4",
+    "standard": "^10.0.2",
+    "tman": "^1.6.9"
+  },
+  "dependencies": {
+    "urllib": "^2.22.0"
+  }
+}
