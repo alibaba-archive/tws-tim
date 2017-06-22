@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "tman 'test/**/*.js'",
-    "pretest": "standard"
+    "pretest": "npm run lint",
+    "lint": "standard --env=mocha",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "coverage": "istanbul cover _mocha --report lcovonly -- -R spec test/**/*.js && npm run coveralls"
   },
   "repository": {
     "type": "git",
@@ -26,11 +29,15 @@
   },
   "homepage": "https://github.com/teambition/tws-tim#readme",
   "devDependencies": {
+    "bson-objectid": "^1.1.5",
+    "coveralls": "^2.13.1",
+    "istanbul": "^0.4.5",
     "power-assert": "^1.4.4",
     "standard": "^10.0.2",
     "tman": "^1.6.9"
   },
   "dependencies": {
-    "urllib": "^2.22.0"
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1"
   }
 }
