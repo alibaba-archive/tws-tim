@@ -29,6 +29,6 @@ describe('notification.retrieve', () => {
   it('should ok', function * () {
     let notification = new client.Notification(_notificationId)
     let res = yield notification.retrieve()
-    assert.equal(res._id, _notificationId)
+    assert.equal(res.notification._id, _notificationId)
   })
 })
