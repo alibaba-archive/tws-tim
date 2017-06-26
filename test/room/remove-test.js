@@ -21,6 +21,6 @@ describe('room.remove', () => {
   })
 
   it('should ok', function * () {
-    yield room.remove(utils.randomId())
+    yield room.remove()
   })
 })

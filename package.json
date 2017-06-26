@@ -8,7 +8,7 @@
     "pretest": "npm run lint",
     "lint": "standard --env=mocha",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
-    "coverage": "istanbul cover _mocha --report lcovonly -- -R spec test/**/*.js && npm run coveralls"
+    "coverage": "istanbul cover _tman --report lcovonly -- -R spec test/**/*.js && npm run coveralls"
   },
   "repository": {
     "type": "git",

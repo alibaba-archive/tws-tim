@@ -1,23 +1,31 @@
-'use srtict'
+'use strict'
 
 const utils = require('../utils')
 
-describe('room.archive', () => {
+describe('activity.remove', () => {
   let room
+  let _activityId
+  let client = utils.httpClient
 
   before(function * () {
     let _resourceId = utils.randomId()
-    let client = utils.httpClient
 
     yield client.Room.create({
       _resourceId: _resourceId,
       resourceType: 'project',
       members: [
-        utils.randomId()
+        client.getUserId()
       ]
     })
 
     room = new client.Room(_resourceId)
+
+    let res = yield client.Activity.create({
+      _resourceId: _resourceId,
+      action: 'comment',
+      title: utils.randomStr()
+    })
+    _activityId = res._id
   })
 
   after(function * () {
@@ -25,6 +33,7 @@ describe('room.archive', () => {
   })
 
   it('should ok', function * () {
-    yield room.archive()
+    let activity = new client.Activity(_activityId)
+    yield activity.remove()
   })
 })
