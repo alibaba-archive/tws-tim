@@ -22,7 +22,7 @@ describe('Activity.create', () => {
   })
 
   after(function * () {
-    yield room.remove(utils.randomId())
+    yield room.remove()
   })
 
   it('should ok', function * () {
