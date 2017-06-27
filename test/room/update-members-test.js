@@ -26,7 +26,7 @@ describe('room.updateMembers', () => {
   })
 
   afterEach(function * () {
-    yield room.remove(utils.randomId())
+    yield room.remove()
   })
 
   it('replace should ok', function * () {

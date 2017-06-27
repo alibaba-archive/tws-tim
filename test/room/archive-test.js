@@ -21,7 +21,7 @@ describe('room.archive', () => {
   })
 
   after(function * () {
-    yield room.remove(utils.randomId())
+    yield room.remove()
   })
 
   it('should ok', function * () {
