@@ -6,7 +6,7 @@ describe('Room.create', () => {
   let room
 
   after(function * () {
-    yield room.remove(utils.randomId())
+    yield room.remove()
   })
 
   it('should ok', function * () {
