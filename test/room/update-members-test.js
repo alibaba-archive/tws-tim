@@ -25,10 +25,6 @@ describe('room.updateMembers', () => {
     room = new client.Room(_resourceId)
   })
 
-  afterEach(function * () {
-    yield room.remove()
-  })
-
   it('replace should ok', function * () {
     let result
 
@@ -37,12 +33,9 @@ describe('room.updateMembers', () => {
       utils.randomId()
     ]
     let expected = replacedmembers
-    result = yield room.replaceMembers(replacedmembers)
+    result = (yield room.replaceMembers(replacedmembers)).active
     assert.equal(result.count, replacedmembers.length)
     assert.equal(result.checksum, utils.checksumMembers(expected))
-
-    result = yield room.getMembers()
-    assert.deepEqual(result.members, expected.sort())
   })
 
   it('add should ok', function * () {
@@ -53,12 +46,9 @@ describe('room.updateMembers', () => {
       utils.randomId()
     ]
     let expected = addedmembers.concat(members)
-    result = yield room.addMembers(addedmembers)
+    result = (yield room.addMembers(addedmembers)).active
     assert.equal(result.count, expected.length)
     assert.equal(result.checksum, utils.checksumMembers(expected))
-
-    result = yield room.getMembers()
-    assert.deepEqual(result.members, expected.sort())
   })
 
   it('delete should ok', function * () {
@@ -69,11 +59,8 @@ describe('room.updateMembers', () => {
       utils.randomId()
     ]
     let expected = members.filter(ele => !deletemembers.includes(ele))
-    result = yield room.deleteMembers(deletemembers)
+    result = (yield room.deleteMembers(deletemembers)).active
     assert.equal(result.count, expected.length)
     assert.equal(result.checksum, utils.checksumMembers(expected))
-
-    result = yield room.getMembers()
-    assert.deepEqual(result.members, expected.sort())
   })
 })

@@ -18,8 +18,7 @@ describe('notification.retrieve', () => {
       ]
     })
 
-    let res = yield client.Activity.create({
-      _resourceId: _resourceId,
+    let res = yield client.Activity.createGroup(_resourceId, {
       title: utils.randomStr(),
       action: utils.randomStr()
     })

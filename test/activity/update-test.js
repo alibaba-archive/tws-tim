@@ -4,7 +4,6 @@ const utils = require('../utils')
 
 describe('activity.update', () => {
   let client = utils.httpClient
-  let room
   let _activityId
 
   before(function * () {
@@ -18,18 +17,11 @@ describe('activity.update', () => {
       ]
     })
 
-    room = new client.Room(_resourceId)
-
-    let res = yield client.Activity.create({
-      _resourceId: _resourceId,
+    let res = yield client.Activity.createGroup(_resourceId, {
       action: 'comment',
       title: utils.randomStr()
     })
     _activityId = res._id
-  })
-
-  after(function * () {
-    yield room.remove()
   })
 
   it('should ok', function * () {

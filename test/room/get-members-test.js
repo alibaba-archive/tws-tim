@@ -23,12 +23,8 @@ describe('room.getMembers', () => {
     room = new client.Room(_resourceId)
   })
 
-  after(function * () {
-    yield room.remove()
-  })
-
   it('should ok', function * () {
-    let result = yield room.getMembers()
+    let result = (yield room.getMembers()).active
     assert.equal(result.count, members.length)
     let checksum = utils.checksumMembers(result.members)
     assert.equal(result.checksum, checksum)

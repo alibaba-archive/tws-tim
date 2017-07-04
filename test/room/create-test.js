@@ -3,12 +3,6 @@
 const utils = require('../utils')
 
 describe('Room.create', () => {
-  let room
-
-  after(function * () {
-    yield room.remove()
-  })
-
   it('should ok', function * () {
     let _resourceId = utils.randomId()
     let client = utils.httpClient
@@ -20,7 +14,5 @@ describe('Room.create', () => {
         utils.randomId()
       ]
     })
-
-    room = new client.Room(_resourceId)
   })
 })
