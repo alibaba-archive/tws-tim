@@ -2,7 +2,7 @@
 
 const crypto = require('crypto')
 const ObjectID = require('bson-objectid')
-const HttpClient = require('../lib/http-client')
+const HttpClient = require('..').HttpClient
 
 class TestUtils {
   static randomId () {
